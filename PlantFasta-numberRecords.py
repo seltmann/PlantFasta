@@ -1,7 +1,7 @@
 #October 21, 2019
 # K. Seltmann
 # takes a list of names and returns the number of records for a specific gene region based on the plant list
-# requires Cal-plants.txt
+# requires plant_species-Oct19.txt
 # to change the gene, change gene region mentioned in for loop (line31)
 
 #import Entrez
@@ -13,6 +13,7 @@ Entrez.email = "seltmann@ccber.ucsb.edu"
 # countGene function that creates a text file of the number of records on ncbii for the plants we are interested in
 def countGene(name, gene):
     handle = Entrez.esearch(db='nucleotide', term = [name + "[Orgn] AND " + gene + "[All Fields]"])
+    #unsure about if should be searching specifically by Gene or by All Fields
     #  handle = Entrez.esearch(db='nucleotide', term = [name + "[Orgn] AND " + gene + "[Gene]"])
     record = Entrez.read(handle)
     print(record)
@@ -25,6 +26,7 @@ print(lines)
 text_file.close()
 
 # open a file to write to
+#change name of file based on each gene region
 f = open("plantCounts-ITS1.txt", "w")
 
 #go through list and pass to countGene function 
