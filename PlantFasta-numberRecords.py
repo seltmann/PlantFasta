@@ -4,9 +4,10 @@
 # requires Cal-plants.txt
 # to change the gene, change gene region mentioned in for loop (line31)
 
-#import Entrez and specify your email.
+#import Entrez
 from Bio import Entrez
-import csv
+
+#change to be your email. NCBI API needs this to work
 Entrez.email = "seltmann@ccber.ucsb.edu"
 
 # countGene function that creates a text file of the number of records on ncbii for the plants we are interested in
