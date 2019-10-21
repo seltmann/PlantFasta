@@ -1,6 +1,6 @@
 #October 21, 2019
 # K. Seltmann
-# takes a list of names and returns the number of records for a specific gene region based on the plant list
+# takes a list of names and returns the number of records for a specific gene region based on the plant list and downloads all of the associated fasta files
 # requires Cal-plants.txt
 # to change the gene, change gene region mentioned in for loop (line31), downloads fasta files based on a list of plants and gene region
 
