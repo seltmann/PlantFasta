@@ -18,7 +18,7 @@ def countGene(name, gene):
     return record
 	
 # get list of plant names and put it in a list
-text_file = open("Cal-plants.txt", "r")
+text_file = open("plant_species-Oct19.txt", "r")
 lines = text_file.readlines()
 print(lines)
 text_file.close()
