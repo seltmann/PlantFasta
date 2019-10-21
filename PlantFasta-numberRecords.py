@@ -12,7 +12,8 @@ Entrez.email = "seltmann@ccber.ucsb.edu"
 
 # countGene function that creates a text file of the number of records on ncbii for the plants we are interested in
 def countGene(name, gene):
-    handle = Entrez.esearch(db='nucleotide', term = [name + "[Orgn] AND " + gene + "[Gene]"])
+    handle = Entrez.esearch(db='nucleotide', term = [name + "[Orgn] AND " + gene + "[All Fields]"])
+    #  handle = Entrez.esearch(db='nucleotide', term = [name + "[Orgn] AND " + gene + "[Gene]"])
     record = Entrez.read(handle)
     print(record)
     return record
@@ -24,12 +25,12 @@ print(lines)
 text_file.close()
 
 # open a file to write to
-f = open("plantCounts-ITS2.txt", "w")
+f = open("plantCounts-ITS1.txt", "w")
 
 #go through list and pass to countGene function 
 for plantNames in lines:
     name = plantNames
-    gene = 'ITS2' #change gene region here
+    gene = 'ITS1' #change gene region here
     record = countGene(name,gene)
     recordRow = (name.strip(),",", gene,",",record["Count"]+'\n')
     print(recordRow)
