@@ -1,21 +1,15 @@
-#October 21, 2019
+#http://www.boldsystems.org/index.php/API_Public/sequence?taxon=Encelia%20californica&marker=rbcla&format=FASTA
+
+#rbcla
+
+#November 5, 2019
 # K. Seltmann
 # takes a list of names and returns the number of records for a specific gene region based on the plant list and downloads all of the associated fasta files
 # requires Cal-plants.txt
 # to change the gene, change gene region mentioned in for loop (line31), downloads fasta files based on a list of plants and gene region
 
-#import Entrez
-from Bio import Entrez
-
-#change to be your email. NCBI API needs this to work
-Entrez.email = "seltmann@ccber.ucsb.edu"
-
-# countGene function that creates a text file of the number of records on ncbii for the plants we are interested in
-def countGene(name, gene):
-    handle = Entrez.esearch(db='nucleotide', term = [name + "[Orgn] AND " + gene + "[Gene]"])
-    record = Entrez.read(handle)
-    print(record)
-    return record
+#get counts?
+#name, gene, count
 
 #function to return fasta file based on single ID
 def singleEntry(singleID):   #the singleID is the accession number
