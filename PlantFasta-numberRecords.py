@@ -20,19 +20,19 @@ def countGene(name, gene):
     return record
 	
 # get list of plant names and put it in a list
-text_file = open("Cal-plants.txt", "r")
+text_file = open("plant_species-Oct19.txt", "r")
 lines = text_file.readlines()
 print(lines)
 text_file.close()
 
 # open a file to write to
 #change name of file based on each gene region
-f = open("plantCounts-test.txt", "w")
+f = open("plantCounts-rbclb.txt", "w")
 
 #go through list and pass to countGene function 
 for plantNames in lines:
     name = plantNames
-    gene = 'rbcl' #change gene region here
+    gene = 'rbclb' #change gene region here
     record = countGene(name,gene)
     recordRow = (name.strip(),",", gene,",",record["Count"]+'\n')
     print(recordRow)
